@@ -1,0 +1,72 @@
+/* estilos.css */
+
+body {
+    font-family: Arial;
+    margin: 0;
+    padding:s 0;
+    background-color: #f8f0cd;
+    color: black;
+}
+
+header {
+    font-family: Impact;
+    background-color: #cf0000;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15 px;
+}
+
+ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding predeterminado del <ul> */
+    text-align: left; /* Alinea el contenido a la izquierda */
+    margin: 0 auto; /* Centra el <ul> dentro de su contenedor */
+    width: fit-content; /* Ajusta el ancho al contenido */
+}
+
+li {
+    padding: 10px 0; /* Espacio entre los elementos de la lista */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #cf0000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+img {
+    max-width: 45%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.contenido {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    text-align: justify;
+}

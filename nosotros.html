@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Hemburguiza</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Estilo del contenedor del carrusel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+       h1{
+        text-align: center;
+       }
+
+        /* Imágenes dentro del carrusel */
+        .carousel-images {
+            display: flex;
+            animation: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+            height: 400px;
+            object-fit: contain;
+        }
+
+        /* Flechas de navegación */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+        }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Nosotros</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="mision.html">Misión</a></li>
+                <li><a href="vision.html">Visión</a></li>
+                <li><a href="contacto.html">Contáctanos</a></li>
+                <li><a href="formulario.html">Ofertas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contenido">
+            <h1>Nosotros</h1>
+            <p>Hemburguiza se destaca por ofrecer una experiencia culinaria única a través de sus innovadoras hamburguesas gourmet, elaboradas con ingredientes frescos y de alta calidad. Desde nuestros inicios, hemos estado comprometidos con la excelencia, transformando la tradicional hamburguesa en una obra maestra gastronómica que deleita a los amantes de la buena comida.</p>
+           </div>
+
+           <div class="Historia y Valores">
+            <h2>Historia y Valores</h2>
+            <p>Hemburguiza nació en 2024, cuando un grupo de estudiantes, apasionados por la gastronomía y la innovación, se unió para realizar un proyecto escolar. Durante nuestras reuniones, nos dimos cuenta de que compartíamos un sueño: llevar hamburguesas gourmet a las puertas de nuestros compradores. Así que decidimos reunir nuestras ideas y poner en marcha este emprendimiento. Desde el principio, nos propusimos no solo ofrecer hamburguesas deliciosas, sino también crear una experiencia única para nuestros clientes. Comenzamos investigando sobre los mejores ingredientes y técnicas de cocina, y nos enfocamos en la calidad y el sabor. Con mucho esfuerzo y dedicación, logramos diseñar un menú que combina clásicos irresistibles con opciones innovadoras. A medida que avanzábamos, nos enfrentamos a numerosos desafíos, desde la logística de entrega hasta el marketing. Pero cada obstáculo nos enseñó algo nuevo y fortaleció nuestro compromiso con Hemburguiza. A través de redes sociales y recomendaciones de boca a boca, comenzamos a ganar reconocimiento en nuestra comunidad. Hoy en día, estamos orgullosos de haber construido una base leal de clientes que aprecian nuestro enfoque en la calidad y el servicio.</p>
+            <ul>
+                <li>Calidad: Seleccionamos los mejores ingredientes para nuestras hamburguesas, priorizando siempre el sabor y la frescura.</li>
+                <li>Sostenibilidad: Utilizamos envases ecológicos y apoyamos a proveedores locales, contribuyendo así al bienestar de nuestra comunidad y del medio ambiente.</li>
+                <li>Rapidez: Nos comprometemos a realizar entregas rápidas y eficientes para que nuestros clientes puedan disfrutar de sus comidas sin esperar.</li>
+            </ul>
+
+            <div class="carousel">
+                <button class="carousel-button left" onclick="moveSlide(-1)">&#8249;
+                </button>
+                <div class="carousel-images">
+                    <img src="imagenes/hamburgueza1.jpg" alt="Imagen 1">
+                    <img src="imagenes/hamburgueza3.jpg" alt="Imagen 2">
+                    <img src="imagenes/hamburgueza2.jpg" alt="Imagen 3">
+                    <img src="imagenes/hamburgueza4.jpg" alt="Imagen 4">
+                    <img src="imagenes/hamburgueza5.jpg" alt="Imagen 5">
+                    <img src="imagenes/hamburgueza7.jpg" alt="Imagen 6">
+                    <img src="imagenes/hamburgueza6.jpg" alt="Imagen 7">
+                    <img src="imagenes/hamburgueza9.jpg" alt="Imagen 8">
+                    <img src="imagenes/hamburgueza8.jpg" alt="Imagen 9">
+                </div>
+                <button class="carousel-button right" onclick="moveSlide(1)">&#8250;
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Hemburguiza. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        const carouselImages = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        let currentIndex = 0;
+        const totalImages = images.length;
+        const slideInterval = 3000; // Tiempo en milisegundos para la transición automática
+        let interval;
+        
+        // Mover las imágenes manualmente
+        function moveSlide(direction) {
+        currentIndex += direction;
+        
+        if (currentIndex < 0) {
+        currentIndex = totalImages - 1; // Ir al último
+        } else if (currentIndex >= totalImages) {
+        currentIndex = 0; // Regresar al primero
+        }
+        
+        updateSlide();
+        resetInterval(); // Reiniciar la transición automática después de la interacción
+        }
+        
+        // Actualizar la posición del carrusel
+        function updateSlide() {
+        const offset = -currentIndex * 100;
+        carouselImages.style.transform = `translateX(${offset}%)`;
+        }
+        
+        // Transición automática
+        function startAutoSlide() {
+        interval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateSlide();
+        }, slideInterval);
+        }
+        
+        // Reiniciar el temporizador de la transición automática
+        function resetInterval() {
+        clearInterval(interval);
+        startAutoSlide();
+        }
+        
+        // Iniciar la transición automática al cargar la página
+        startAutoSlide();
+        </script>
+</body>
+</html>
